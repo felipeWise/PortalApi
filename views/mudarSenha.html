@@ -1,0 +1,30 @@
+<!-- mudarSenha.html -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefinir Senha</title>
+</head>
+<body>
+    <h1>Redefinir Senha</h1>
+    <form id="resetPasswordForm" action="/mudarSenha" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= email %>" required>
+        <label for="newPassword">Nova Senha:</label>
+        <input type="password" id="newPassword" name="newPassword" required>
+        <button type="submit">Redefinir Senha</button>
+    </form>
+
+    <script>
+        window.alert("Defina sua senha de acesso!")
+        // Recuperar o email da URL e preencher o campo de email
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');
+        if (email) {
+            document.getElementById('email').value = email;
+        }
+    </script>
+</body>
+</html>
